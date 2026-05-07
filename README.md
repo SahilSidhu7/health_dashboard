@@ -1,19 +1,17 @@
-# Devvit Mod Tool Template
+# Community Health Dashboard
 
-A template for building Reddit moderation tools using Devvit web. This template provides a complete foundation for creating custom moderation tools with bulk comment management capabilities.
+A Devvit mod tool for monitoring and analyzing community health metrics. This app provides moderators with comprehensive insights into their subreddit's performance, engagement, and moderation trends.
 
 ## Features
 
-This template includes a working mod tool called **"Mop"** that demonstrates:
+The **Health Dashboard** provides:
 
-- **Bulk Comment Management**: Remove or lock multiple comments at once
-- **Thread-level Actions**: "Mop comments" - Remove/lock a comment and all its replies
-- **Post-level Actions**: "Mop post comments" - Remove/lock all comments on a post
-- **Flexible Options**:
-  - Remove comments, lock comments, or both
-  - Skip distinguished comments (moderator/admin posts)
-- **Permission Checks**: Only moderators with proper permissions can use the tool
-- **User-friendly Forms**: Interactive forms with clear options and validation
+- **Health Score Tracking**: Monitor overall community health with visual metrics
+- **Workload Analysis**: View moderation workload and trends
+- **Retention Statistics**: Analyze user retention patterns
+- **Moderation Activity**: Track moderation logs and activities
+- **Trend Analysis**: View community trends over time
+- **Performance Metrics**: Cache management and performance optimization
 
 ## Tech Stack
 
@@ -43,23 +41,32 @@ This template includes a working mod tool called **"Mop"** that demonstrates:
 ```
 src/
 ├── index.ts          # Main server setup with Hono routes
-├── core/
-│   └── nuke.ts       # Core moderation logic for bulk operations
+├── client/           # React web components
+│   ├── App.tsx       # Main dashboard application
+│   ├── components/   # UI components (charts, metrics, stats)
+│   └── styles.css    # Component styling
 └── routes/
     ├── api.ts        # Public API endpoints
-    ├── forms.ts      # Form submission handlers
     ├── menu.ts       # Context menu item handlers
-    └── triggers.ts   # App lifecycle triggers
+    ├── triggers.ts   # App lifecycle triggers
+    └── server/routes/  # API routes for dashboard data
+        ├── health.ts    # Health score calculation
+        ├── workload.ts  # Moderation workload metrics
+        ├── retention.ts # User retention analytics
+        ├── trends.ts    # Community trends
+        ├── modlog.ts    # Moderation log data
+        ├── me.ts        # User profile data
+        └── cache.ts     # Cache management
 ```
 
-## Customizing Your Mod Tool
+## Customizing Your Health Dashboard
 
 This template is designed to be easily customizable:
 
-1. **Modify existing actions**: Edit the nuke functionality in `src/core/nuke.ts`
-2. **Add new menu items**: Update `devvit.json` and add handlers in `src/routes/menu.ts`
-3. **Create new forms**: Add form definitions and handlers in `src/routes/forms.ts`
-4. **Add API endpoints**: Extend `src/routes/api.ts` for external integrations
+1. **Add new metrics**: Create new route handlers in `src/server/routes/` for custom data
+2. **Customize dashboard UI**: Edit components in `src/client/components/`
+3. **Modify menu items**: Update `devvit.json` and handlers in `src/routes/menu.ts`
+4. **Extend API endpoints**: Add new endpoints in `src/routes/api.ts` for external integrations
 
 ## Commands
 
@@ -72,12 +79,12 @@ This template is designed to be easily customizable:
 
 ## How It Works
 
-The template demonstrates Reddit mod tool development through the "Mop" feature:
+The Health Dashboard provides real-time community insights:
 
-1. **Context Menu Integration**: Click on the Mod Shield icon in a comment to see custom mod actions
-2. **Permission Validation**: Automatically checks if the user has moderation permissions
-3. **Interactive Forms**: Presents options through Reddit's native form system
-4. **Reddit API**: Processes multiple comments using Reddit's API
+1. **Menu Integration**: Click "Health Dashboard" from the mod menu to open the dashboard
+2. **Data Collection**: Aggregates data from Reddit API for health metrics
+3. **Real-time Updates**: Automatic refresh to keep metrics current
+4. **Visual Analytics**: Charts and graphs for trend analysis
 
 ## Development Notes
 
