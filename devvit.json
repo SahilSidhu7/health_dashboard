@@ -1,12 +1,27 @@
 {
   "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
   "name": "health-dashboard",
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": {
+        "entry": "index.html"
+      }
+    }
+  },
   "server": {
     "dir": "dist/server",
     "entry": "index.cjs"
   },
   "menu": {
     "items": [
+      {
+        "label": "Health Dashboard",
+        "description": "Open Community Health Dashboard",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/health-dashboard"
+      },
       {
         "label": "Mop comments",
         "description": "Remove this comment and all child comments. This might take a few seconds to run.",

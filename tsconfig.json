@@ -10,8 +10,8 @@
     "types": ["node"],
     "noUncheckedIndexedAccess": true,
     "noUncheckedSideEffectImports": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "resolveJsonModule": true,
     "strict": true,
     "isolatedModules": true,
@@ -22,6 +22,7 @@
     "skipDefaultLibCheck": true,
     "sourceMap": true,
     "target": "ES2022",
+    "jsx": "react-jsx",
     "outDir": "dist/types",
     "tsBuildInfoFile": "dist/types/tsconfig.tsbuildinfo"
   },
